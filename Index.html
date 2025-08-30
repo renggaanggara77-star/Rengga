@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rengga Net - Solusi Internet Terpercaya</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    * { box-sizing: border-box; margin:0; padding:0; font-family: 'Roboto', sans-serif; }
+    body { background-color:#f4f7f8; color:#333; }
+
+    header {
+        background: linear-gradient(135deg, #007BFF, #00BFFF);
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    header h1 { font-size: 2.2em; margin-bottom: 15px; }
+
+    nav { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+    nav button {
+        background: none; border: none; color: white;
+        font-weight: bold; cursor: pointer; font-size: 1em;
+        padding: 10px 20px; border-radius: 10px; transition:0.3s;
+    }
+    nav button:hover { background: rgba(255,255,255,0.2); }
+
+    section { padding:60px 20px; display:none; }
+    section.active { display:block; }
+    h2 { color:#007BFF; margin-bottom:20px; text-align:center; }
+    .services, .contact-info, .paket-list { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+    .card { background:white; padding:25px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.1); text-align:center; flex:1 1 250px; transition:0.3s; }
+    .card:hover { transform: translateY(-5px); box-shadow:0 12px 25px rgba(0,0,0,0.15); }
+    .card h3 { margin-bottom:15px; color:#007BFF; }
+    .card p { margin-bottom:15px; }
+
+    .btn { border:none; padding:12px 25px; border-radius:25px; cursor:pointer; font-weight:bold; transition:0.3s; }
+    .btn-green { background:linear-gradient(45deg,#28a745,#1e7e34); color:white; box-shadow:0 4px 10px rgba(0,0,0,0.2); }
+    .btn-green:hover { transform:translateY(-3px) scale(1.05); box-shadow:0 6px 15px rgba(0,0,0,0.3); }
+    .btn-blue { background-color:#87CEFA; color:white; }
+    .btn-blue:hover { background-color:#00BFFF; transform:translateY(-2px) scale(1.05); }
+    .btn-email { background-color:#007BFF; color:white; }
+    .btn-email:hover { background-color:#0056b3; }
+    .btn-wa { background-color:#25D366; color:white; }
+    .btn-wa:hover { background-color:#1ebe5d; }
+
+    .contact-choice, #paket-data { margin-top:15px; }
+    .hidden { display:none; }
+
+    footer { background:#f1f1f1; text-align:center; padding:25px 0; margin-top:50px; }
+
+    @media(max-width:768px){
+        nav { flex-direction: column; gap:10px; }
+        .services, .contact-info, .paket-list { flex-direction:column; }
+        .card { flex:1 1 100%; }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Gaduk Net</h1>
+    <nav>
+        <button onclick="showSection('services')">Layanan</button>
+        <button onclick="showSection('about')">Tentang Kami</button>
+        <button onclick="showSection('contact')">Kontak</button>
+    </nav>
+</header>
+
+<section id="services" class="active">
+    <h2>Layanan Kami</h2>
+    <div class="services">
+        <div class="card">
+            <h3>Ada Gangguan?</h3>
+            <p>Laporkan keluhan melalui Email atau WhatsApp.</p>
+            <button class="btn btn-green" onclick="showKeluhan()">Ada Gangguan?</button>
+            <div id="keluhan-choice" class="contact-choice hidden">
+                <button class="btn btn-email" onclick="window.location.href='mailto:support@gaduknet.com'">Email</button>
+                <a href="https://wa.me/6285745514677?text=Hallo" target="_blank"><button class="btn btn-wa">WhatsApp</button></a>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Paket Data</h3>
+            <p>Paket data fleksibel sesuai kebutuhan.</p>
+            <button class="btn btn-blue" onclick="togglePaket()">Lihat Paket Data</button>
+            <div id="paket-data" class="paket-list hidden">
+                <button class="btn btn-blue">Rp 100.000 → Kecepatan hingga 5 Mbps</button>
+                <button class="btn btn-blue">Rp 150.000 → Kecepatan hingga 10 Mbps</button>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Bagikan Pengalaman</h3>
+            <p>Kami memastikan pengalaman terbaik bagi pelanggan.</p>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <h2>Tentang Kami</h2>
+    <p style="text-align:center; max-width:700px; margin:auto;">Gaduk Net adalah penyedia layanan internet terkemuka di Indonesia. Kami berkomitmen memberikan koneksi cepat, aman, dan layanan pelanggan terbaik.</p>
+</section>
+
+<section id="contact">
+    <h2>Kontak Kami</h2>
+    <div class="contact-info">
+        <div class="card">
+            <h3>Email</h3>
+            <p>support@gaduknet.com</p>
+        </div>
+        <div class="card">
+            <h3>Telepon</h3>
+            <p>+62 812-3456-7890</p>
+        </div>
+        <div class="card">
+            <h3>Alamat</h3>
+            <p>Jl. Contoh No.123, Jakarta, Indonesia</p>
+        </div>
+    </div>
+    <div style="text-align:center; margin-top:20px;">
+        <button class="btn btn-green" onclick="alert('Terima kasih telah menghubungi kami!')">Hubungi Sekarang</button>
+    </div>
+</section>
+
+<footer>
+    &copy; 2025 Gaduk Net. All Rights Reserved.
+</footer>
+
+<script>
+    function showSection(id){
+        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
+    function togglePaket(){ document.getElementById('paket-data').classList.toggle('hidden'); }
+    function showKeluhan(){ document.getElementById('keluhan-choice').classList.toggle('hidden'); }
+</script>
+
+</body>
+</html>
